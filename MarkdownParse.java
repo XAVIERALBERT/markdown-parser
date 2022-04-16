@@ -19,14 +19,24 @@ public class MarkdownParse {
             int closeParen = markdown.indexOf(")", openParen);
 
             // Check if there is a ! before []
-            if (markdown.substring(openBracket - 1, openBracket).equals("!") 
+            if (currentIndex == 0) {
+                if (markdown.substring(currentIndex, currentIndex + 1).equals("!") 
                     == false) {
-                returnedStr = markdown.substring(openParen + 1, closeParen);
-                // Remove extra spaces if present
-                returnedStr = returnedStr.replaceAll(" ", "");
-                toReturn.add(returnedStr);
+                    returnedStr = markdown.substring(openParen + 1, closeParen);
+                    // Remove extra spaces if present
+                    returnedStr = returnedStr.replaceAll(" ", "");
+                    toReturn.add(returnedStr);
+                }
+            } else {
+                if (markdown.substring(openBracket - 1, openBracket).equals("!") 
+                    == false) {
+                    returnedStr = markdown.substring(openParen + 1, closeParen);
+                    // Remove extra spaces if present
+                    returnedStr = returnedStr.replaceAll(" ", "");
+                    toReturn.add(returnedStr);
+                }
             }
-
+            
             currentIndex = closeParen + 1;
         }
 
