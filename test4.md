@@ -4,3 +4,5 @@
 [link2]()
 
 [link3](some-thing.html)
+
+[link4]()
