@@ -11,38 +11,45 @@ public class MarkdownParse {
         ArrayList<String> toReturn = new ArrayList<>();
         // find the next [, then find the ], then find the (, then read link upto next )
         int currentIndex = 0;
-        String returnedStr;
+        
         while(currentIndex < markdown.length()) {
             int openBracket = markdown.indexOf("[", currentIndex);
             int closeBracket = markdown.indexOf("]", openBracket);
             int openParen = markdown.indexOf("(", closeBracket);
             int closeParen = markdown.indexOf(")", openParen);
 
-            // Check if there is a ! before []
+            String returnedStr;
+            int start;
+            int end;
+
+            // Determine the checked indices
             if (currentIndex == 0) {
-                if (markdown.substring(currentIndex, currentIndex + 1).equals("!") 
-                    == false) {
-                    returnedStr = markdown.substring(openParen + 1, closeParen);
-                    // Remove extra spaces if present
-                    returnedStr = returnedStr.replaceAll(" ", "");
-                    toReturn.add(returnedStr);
-                }
+                start = currentIndex;
+                end = currentIndex + 1;
+                
             } else {
-                if (markdown.substring(openBracket - 1, openBracket).equals("!") 
-                    == false) {
-                    returnedStr = markdown.substring(openParen + 1, closeParen);
-                    // Remove extra spaces if present
-                    returnedStr = returnedStr.replaceAll(" ", "");
+                start = openBracket - 1;
+                end = openBracket;
+            }
+
+            // Check if there is a ! before []
+            if (markdown.substring(start, end).equals("!") == false) {
+                returnedStr = markdown.substring(openParen + 1, closeParen);
+
+                // Remove extra spaces if present
+                returnedStr = returnedStr.replaceAll(" ", "");
+
+                // Check if the string is empty
+                if (returnedStr.equals("") == false) {
                     toReturn.add(returnedStr);
                 }
             }
-            
+
             currentIndex = closeParen + 1;
         }
 
         return toReturn;
     }
-
 
     public static void main(String[] args) throws IOException {
         Path fileName = Path.of(args[0]);
