@@ -1,9 +1,3 @@
-<!-->
-[link1](https://something.com)
-[link2](some-thing.html)
-[link3](https://google.com)
--->
-
 # test 1 (same line) --- Works
 [link2](some-thing.html) [link3](https://google.com)
 
@@ -15,6 +9,10 @@
 # test 3 (spaces at link) --- print two spaces
 [link2]( some-thing.html )
 
-# test 4 (another way to insert links) --- Run-time error: out of Memory
+# test 4 (image inference) --- Logic error: print out undesired message
+
+![Image](Image inserted here)
+
 [Link3][1]
-[1]: https://google.com
+
+[1]: (https://google.com)
