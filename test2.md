@@ -9,7 +9,7 @@
 # test 3 (spaces at link) --- print two spaces
 [link2]( some-thing.html )
 
-# test 4 (image inference) --- Logic error: print out undesired message
+# test 4 (image inference) --- Logic error: print out an undesired message
 
 ![Image](Image inserted here)
 
