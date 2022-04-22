@@ -3,6 +3,9 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 
 import org.junit.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class MarkdownParseTest {
     @Test
@@ -51,5 +54,73 @@ public class MarkdownParseTest {
         ArrayList<String> expected = new ArrayList<>();
         ArrayList<String> result = MarkdownParse.getLinks(toTest);
         assertEquals(expected,result);
+    }
+
+    @Test
+    public void testGetLinks5() throws IOException {
+        MarkdownParse test = new MarkdownParse();
+
+        Path fileName = Path.of("/Users/xaval/OneDrive/Documents/GitHub/markdown-parser/test-file2.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> links = test.getLinks(content);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("https://something.com");
+        expected.add("some-page.html");
+
+        assertEquals(expected,links);
+
+    }
+
+    @Test
+    public void testGetLinks6() throws IOException {
+        MarkdownParse test = new MarkdownParse();
+
+        Path fileName = Path.of("/Users/xaval/OneDrive/Documents/GitHub/markdown-parser/test-file3.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> links = test.getLinks(content);
+        ArrayList<String> expected = new ArrayList<>();
+
+        assertEquals(expected,links);
+
+    }
+
+    @Test
+    public void testGetLinks7() throws IOException {
+        MarkdownParse test = new MarkdownParse();
+
+        Path fileName = Path.of("/Users/xaval/OneDrive/Documents/GitHub/markdown-parser/test-file4.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> links = test.getLinks(content);
+        ArrayList<String> expected = new ArrayList<>();
+
+        assertEquals(expected,links);
+
+    }
+
+    @Test
+    public void testGetLinks8() throws IOException {
+        MarkdownParse test = new MarkdownParse();
+
+        Path fileName = Path.of("/Users/xaval/OneDrive/Documents/GitHub/markdown-parser/test-file7.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> links = test.getLinks(content);
+        ArrayList<String> expected = new ArrayList<>();
+
+        assertEquals(expected,links);
+
+    }
+
+    @Test
+    public void testGetLinks9() throws IOException {
+        MarkdownParse test = new MarkdownParse();
+
+        Path fileName = Path.of("/Users/xaval/OneDrive/Documents/GitHub/markdown-parser/test-file8.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> links = test.getLinks(content);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("a link on the first line");
+
+        assertEquals(expected,links);
+
     }
 }
