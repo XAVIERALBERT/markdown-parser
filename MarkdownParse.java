@@ -16,6 +16,10 @@ public class MarkdownParse {
             int closeBracket = markdown.indexOf("]", openBracket);
             int openParen = markdown.indexOf("(", closeBracket);
             int closeParen = markdown.indexOf(")", openParen);
+            //if "[" "]" "(" and ")" do not exist, return an empty array
+            if (openBracket == -1 && closeBracket == -1 && openParen == -1 && closeParen == -1){
+                return toReturn;
+            }
             //to distinguish between image and link syntax
             if (markdown.substring(openBracket-1, openBracket).equals("!")){
             //do nothing
@@ -33,6 +37,8 @@ public class MarkdownParse {
     public static void main(String[] args) throws IOException {
         Path fileName = Path.of(args[0]);
         String content = Files.readString(fileName);
+        //for debugging
+        //System.out.println(content);
         ArrayList<String> links = getLinks(content);
 	    System.out.println(links);
     }
