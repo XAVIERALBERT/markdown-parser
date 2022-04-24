@@ -1,4 +1,4 @@
-import static org.junit.Assert.*;
+/** import static org.junit.Assert.*;
 import org.junit.*;
 public class MarkdownParseTest {
     @Test
@@ -6,3 +6,4 @@ public class MarkdownParseTest {
         assertEquals(2, 1 + 1);
     }
 }
+*/
