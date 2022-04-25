@@ -16,18 +16,29 @@ public class MarkdownParse {
             int closeBracket = markdown.indexOf("]", openBracket);
             int openParen = markdown.indexOf("(", closeBracket);
             int closeParen = markdown.indexOf(")", openParen);
-            //if "[" "]" "(" and ")" do not exist, return an empty array
-            if (openBracket == -1 && closeBracket == -1 && openParen == -1 && closeParen == -1){
+            //for debugging
+            //System.out.println(openBracket);
+            //System.out.println(closeBracket);
+            //System.out.println(openParen);
+            //System.out.println(closeParen);
+            //if "[" or "]" or "(" or ")" do not exist, return the array b/c there are no links
+            if (openBracket == -1 || closeBracket == -1 || openParen == -1 || closeParen == -1){
+                return toReturn;
+            }
+            //check to make sure that "]" and "(" are side by side
+            if (closeBracket != openParen -1){
                 return toReturn;
             }
             //to distinguish between image and link syntax
-            if (markdown.substring(openBracket-1, openBracket).equals("!")){
-            //do nothing
+            else if (markdown.substring(openBracket-1, openBracket).equals("!")){
+                currentIndex = closeParen + 1;
+                continue;
             }
+            //if it is 100% a link, add it to the list
             else{
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
+                currentIndex = closeParen + 1;
             }
-            currentIndex = closeParen + 1;
         }
 
         return toReturn;
