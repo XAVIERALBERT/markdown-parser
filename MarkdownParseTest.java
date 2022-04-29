@@ -58,11 +58,10 @@ public class MarkdownParseTest {
 
     @Test
     public void testGetLinks5() throws IOException {
-        MarkdownParse test = new MarkdownParse();
-
+        
         Path fileName = Path.of("/Users/xaval/OneDrive/Documents/GitHub/markdown-parser/test-file2.md");
         String content = Files.readString(fileName);
-        ArrayList<String> links = test.getLinks(content);
+        ArrayList<String> links = MarkdownParse.getLinks(content);
         ArrayList<String> expected = new ArrayList<>();
         expected.add("https://something.com");
         expected.add("some-page.html");
