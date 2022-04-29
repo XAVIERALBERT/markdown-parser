@@ -10,7 +10,7 @@ public class MarkdownParseTest {
     
     @Test
     public void getLinksTest() throws IOException {
-        Path fileName = Path.of("/Users/owen/Documents/GitHub/markdown-parser/test1.md");
+        Path fileName = Path.of("test1.md");
         String content = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(content);
         ArrayList<String> expected = new ArrayList<>();
