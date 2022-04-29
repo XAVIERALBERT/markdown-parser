@@ -16,5 +16,12 @@ public class MarkdownParseTest {
         ArrayList<String> expected = new ArrayList<>();
         expected.add("https://something.com");
         assertEquals(expected, links);
+
+        Path fileName2 = Path.of("lab5_test.md");
+        String content2 = Files.readString(fileName2);
+        ArrayList<String> links2 = MarkdownParse.getLinks(content2);
+        ArrayList<String> expected2 = new ArrayList<>();
+        expected2.add("www.google.com");
+        assertEquals(expected2, links2);
     }
 }
