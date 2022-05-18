@@ -59,7 +59,7 @@ public class MarkdownParseTest {
     @Test
     public void testGetLinks5() throws IOException {
         
-        Path fileName = Path.of("test-file2.md");
+        Path fileName = Path.of("C:\\Users\\xaval\\OneDrive\\Documents\\GitHub\\markdown-parser\\test-file2.md");
         String content = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(content);
         ArrayList<String> expected = new ArrayList<>();
@@ -73,7 +73,7 @@ public class MarkdownParseTest {
     @Test
     public void testGetLinks6() throws IOException {
         
-        Path fileName = Path.of("test-file3.md");
+        Path fileName = Path.of("C:\\Users\\xaval\\OneDrive\\Documents\\GitHub\\markdown-parser\\test-file3.md");
         String content = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(content);
         ArrayList<String> expected = new ArrayList<>();
@@ -85,7 +85,7 @@ public class MarkdownParseTest {
     @Test
     public void testGetLinks7() throws IOException {
         
-        Path fileName = Path.of("test-file4.md");
+        Path fileName = Path.of("C:\\Users\\xaval\\OneDrive\\Documents\\GitHub\\markdown-parser\\test-file4.md");
         String content = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(content);
         ArrayList<String> expected = new ArrayList<>();
@@ -97,7 +97,7 @@ public class MarkdownParseTest {
     @Test
     public void testGetLinks8() throws IOException {
 
-        Path fileName = Path.of("test-file7.md");
+        Path fileName = Path.of("C:\\Users\\xaval\\OneDrive\\Documents\\GitHub\\markdown-parser\\test-file7.md");
         String content = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(content);
         ArrayList<String> expected = new ArrayList<>();
@@ -109,7 +109,7 @@ public class MarkdownParseTest {
     @Test
     public void testGetLinks9() throws IOException {
         
-        Path fileName = Path.of("test-file8.md");
+        Path fileName = Path.of("C:\\Users\\xaval\\OneDrive\\Documents\\GitHub\\markdown-parser\\test-file8.md");
         String content = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(content);
         ArrayList<String> expected = new ArrayList<>();
