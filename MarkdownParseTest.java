@@ -125,7 +125,9 @@ public class MarkdownParseTest {
         String content = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(content);
         ArrayList<String> expected = new ArrayList<>();
-        expected.add("a link on the first line"); //change
+        expected.add("url.com");
+        expected.add("`google.com"); 
+        expected.add("google.com"); 
 
         assertEquals(expected,links);
     }
@@ -136,7 +138,9 @@ public class MarkdownParseTest {
         String content = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(content);
         ArrayList<String> expected = new ArrayList<>();
-        expected.add("a link on the first line"); //change
+        expected.add("b.com");
+        expected.add("a.com(())");
+        expected.add("example.com");
 
         assertEquals(expected,links);
     }
