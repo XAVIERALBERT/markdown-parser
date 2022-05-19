@@ -139,7 +139,7 @@ public class MarkdownParseTest {
         String content = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(content);
         ArrayList<String> expected = new ArrayList<>();
-        expected.add("b.com"); //ASK
+        expected.add("a.com"); //ASK
         expected.add("a.com((");
         expected.add("example.com");
 
