@@ -118,4 +118,37 @@ public class MarkdownParseTest {
         assertEquals(expected,links);
 
     }
+
+    @Test
+    public void testSnippet1() throws IOException {
+        Path fileName = Path.of("C:\\Users\\xaval\\OneDrive\\Documents\\GitHub\\markdown-parser\\Snippet-1.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(content);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("a link on the first line"); //change
+
+        assertEquals(expected,links);
+    }
+
+    @Test
+    public void testSnippet2() throws IOException{
+        Path fileName = Path.of("C:\\Users\\xaval\\OneDrive\\Documents\\GitHub\\markdown-parser\\Snippet-2.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(content);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("a link on the first line"); //change
+
+        assertEquals(expected,links);
+    }
+
+    @Test
+    public void testSnippet3() throws IOException{
+        Path fileName = Path.of("C:\\Users\\xaval\\OneDrive\\Documents\\GitHub\\markdown-parser\\Snippet-3.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(content);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("a link on the first line"); //change
+
+        assertEquals(expected,links);
+    }
 }
