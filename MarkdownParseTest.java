@@ -139,8 +139,8 @@ public class MarkdownParseTest {
         String content = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(content);
         ArrayList<String> expected = new ArrayList<>();
-        expected.add("b.com");
-        expected.add("a.com(())");
+        expected.add("b.com"); //ASK
+        expected.add("a.com((");
         expected.add("example.com");
 
         assertEquals(expected,links);
@@ -152,7 +152,16 @@ public class MarkdownParseTest {
         String content = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(content);
         ArrayList<String> expected = new ArrayList<>();
-        expected.add("a link on the first line"); //change
+        expected.add("\n"+"     https://www.twitter.com"+ "\n"); 
+        expected.add("\n" +"https://sites.google.com/eng.ucsd.edu/cse-15l-spring-2022/schedule" + "\n"); 
+        expected.add("github.com" + "\n" + 
+        "\n" + "And there's still some more text after that." +"\n" +
+        "\n" +"[this link doesn't have a closing parenthesis for a while](https://cse.ucsd.edu/" + "\n"
+        +"\n"+"\n"+"\n"); 
+
+        System.out.println(links);
+        System.out.println();
+        System.out.println(expected);
 
         assertEquals(expected,links);
     }
