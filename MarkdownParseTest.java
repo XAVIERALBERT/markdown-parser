@@ -128,6 +128,7 @@ public class MarkdownParseTest {
         expected.add("url.com");
         expected.add("`google.com"); 
         expected.add("google.com"); 
+        expected.add("ucsd.edu");
 
         assertEquals(expected,links);
     }
